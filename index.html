@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Piagno Monopoly City</title>
+		<meta name="description" content="Monopoly City device replacement">
+		<script>
+ 		</script>
+		<style>
+			body {
+				margin: 0 auto;
+				background-color: black;
+				color: white;
+				font-family: sans-serif;
+			}
+			body > div > div {
+				margin-top: 20px;
+				margin-bottom: 20px;
+				text-align: center;
+				font-size: 25px;
+			}
+			button {
+				width: 100%;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Piagno Monopoly City</h1>
+		<div id="dealer">
+			<div id="dealer_text">&nbsp;</div>
+			<div id="dealer_button"><button type="button">DEAL!</button></div>
+		</div>
+		<div id="builder">
+			<div id="builder_result">&nbsp;</div>
+			<div id="builder_button"><button type="button">BUILD!</button></div>
+		</div>
+	</body>
+	<script>
+		document.getElementById('dealer_button').children[0].onclick = () => {
+			let text_element = document.getElementById('dealer_text')
+			text_element.innerText = 'Get ready...'
+			setTimeout(()=>{
+				text_element.innerText = 'Start dealing!'
+				setTimeout(()=>{
+					text_element.innerText = 'Nearly finished!'
+					setTimeout(()=>{
+						text_element.innerText = 'Deal ended, Congratulations!'
+					},5000)
+				}, 55000)
+			}, 3000)
+		}
+		document.getElementById('builder_button').children[0].onclick = () => {
+			let result = Math.floor(Math.random() * 4)
+			let result_element = document.getElementById('builder_result')
+			result_element.innerText = 'Choosing...'
+			setTimeout(()=>{
+				switch(result){
+					case 0:
+						result_element.innerText = 'Build a train station :)'
+						break;
+					default:
+						result_element.innerText = 'Build houses worth '+result+' blocks!'
+						break;
+				}
+			},1000)
+		}
+	</script>
+</html>
